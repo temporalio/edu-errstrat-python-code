@@ -19,7 +19,7 @@ in the `solution` subdirectory.
    ```
    or, if you're in the GitPod environment:
    ```bash
-   ex2
+   ex3
    ```
 
 ## Part A: Review your new rollback Activities and custom Error
