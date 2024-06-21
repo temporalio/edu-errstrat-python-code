@@ -32,7 +32,7 @@ class PizzaOrderWorkflow:
             maximum_attempts=100,
         )
 
-        workflow.logger.info(f"order_pizza workflow invoked")
+        workflow.logger.info(f"Workflow order_pizza invoked")
 
         address = order.address
 
@@ -47,11 +47,11 @@ class PizzaOrderWorkflow:
         )
 
         if order.is_delivery and distance.kilometers > 25:
-            error_message = "customer lives outside the service area"
+            error_message = "Customer lives outside the service area"
             workflow.logger.error(error_message)
             raise ApplicationError(error_message)
 
-        workflow.logger.info(f"distance is {distance.kilometers}")
+        workflow.logger.info(f"Distance is {distance.kilometers}")
 
         # Use a short timer duration here to simulate the passage of time
         # while avoiding delaying the exercise

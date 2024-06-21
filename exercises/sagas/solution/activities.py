@@ -22,7 +22,7 @@ class PizzaOrderActivities:
     @activity.defn
     async def get_distance(self, address: Address) -> Distance:
         activity.logger.info(
-            "get_distance invoked; determining distance to customer address"
+            "Activity get_distance invoked; determining distance to customer address"
         )
 
         # This is a simulation, which calculates a fake (but consistent)
@@ -36,24 +36,24 @@ class PizzaOrderActivities:
 
         distance = Distance(kilometers=kilometers)
 
-        activity.logger.info(f"get_distance complete: {distance}")
+        activity.logger.info(f"Activity get_distance complete: {distance}")
         return distance
 
     @activity.defn
     async def send_bill(self, bill: Bill) -> OrderConfirmation:
         activity.logger.info(
-            f"send_bill invoked: customer: {bill.customer_id} amount: {bill.amount}"
+            f"Activity send_bill invoked: customer: {bill.customer_id} amount: {bill.amount}"
         )
 
         charge_amount = bill.amount
 
         if charge_amount > 3000:
-            activity.logger.info("applying discount")
+            activity.logger.info("Applying discount")
 
             charge_amount -= 500
 
         if charge_amount < 0:
-            error_message = f"invalid charge amount: {charge_amount}"
+            error_message = f"Invalid charge amount: {charge_amount}"
             activity.logger.error(error_message)
 
             raise ApplicationError(

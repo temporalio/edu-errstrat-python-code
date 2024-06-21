@@ -20,7 +20,7 @@ with workflow.unsafe.imports_passed_through():
 class PizzaOrderWorkflow:
     @workflow.run
     async def order_pizza(self, order: PizzaOrder) -> OrderConfirmation:
-        workflow.logger.info("order_pizza workflow invoked")
+        workflow.logger.info("Activity order_pizza workflow invoked")
 
         address = order.address
 
@@ -35,11 +35,11 @@ class PizzaOrderWorkflow:
         )
 
         if order.is_delivery and distance.kilometers > 25:
-            error_message = "customer lives outside the service area"
+            error_message = "Customer lives outside the service area"
             workflow.logger.error(error_message)
             raise ApplicationError(error_message)
 
-        workflow.logger.info(f"distance is {distance.kilometers}")
+        workflow.logger.info(f"Distance is {distance.kilometers}")
 
         # Use a short timer duration here to simulate the passage of time
         # while avoiding delaying the exercise
