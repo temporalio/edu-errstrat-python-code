@@ -35,7 +35,7 @@ Workflows and Activities. In Activities, raiseing an `ApplicationError` will
 cause the Activity to fail. However, this unless this Activity is specified as
 non-retryable, it will retry according to the Retry Policy. To have an Activity
 fail when an `ApplicationError` is raised, set it as non-retryable. Any other 
-exception that is raised in Python is automatically converted to an `ActivityFailure`
+exception that is raised in a Python activity is automatically converted to an `ApplicationError`
 upon being raised.
 
 1. Open the `shared.py` file and familiarize yourself with the custom errors and
