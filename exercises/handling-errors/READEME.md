@@ -31,7 +31,7 @@ In this part of the exercise, you will raise a non-retryable Application Failure
 (represented in Python as `ApplicationError`) that will fail your Activities.
 
 Application Failures are used to communicate application-specific failures in
-Workflows and Activities. In Activities, raiseing an `ApplicationError` will
+Workflows and Activities. In Activities, raising an `ApplicationError` will
 cause the Activity to fail. However, this unless this Activity is specified as
 non-retryable, it will retry according to the Retry Policy. To have an Activity
 fail when an `ApplicationError` is raised, set it as non-retryable. Any other 
