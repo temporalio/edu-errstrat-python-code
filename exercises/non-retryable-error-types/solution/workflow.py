@@ -97,7 +97,7 @@ class PizzaOrderWorkflow:
             heartbeat_timeout=timedelta(seconds=10),
         )
 
-        if delivery_driver_available is not True:
+        if not delivery_driver_available:
             # Notify customer delivery is not available and they will have to come
             # get their pizza, or cancel the order and compensate.
 
