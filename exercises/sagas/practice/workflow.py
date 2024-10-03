@@ -1,5 +1,4 @@
 import asyncio
-import logging
 from datetime import timedelta
 
 from temporalio import workflow
@@ -20,8 +19,6 @@ with workflow.unsafe.imports_passed_through():
 
 @workflow.defn
 class PizzaOrderWorkflow:
-
-    workflow.logger.workflow_info_on_message = False
 
     @workflow.run
     async def order_pizza(self, order: PizzaOrder) -> OrderConfirmation:
