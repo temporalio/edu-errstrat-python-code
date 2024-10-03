@@ -7,13 +7,7 @@ from temporalio.exceptions import ActivityError, ApplicationError
 # Import activity, passing it through the sandbox without reloading the module
 with workflow.unsafe.imports_passed_through():
     from activities import PizzaOrderActivities
-    from shared import (
-        Bill,
-        CreditCardCharge,
-        CreditCardProcessingError,
-        OrderConfirmation,
-        PizzaOrder,
-    )
+    from shared import Bill, CreditCardCharge, OrderConfirmation, PizzaOrder
 
 
 @workflow.defn
@@ -60,7 +54,7 @@ class PizzaOrderWorkflow:
         # TODO Part B: Wrap this line in a try/catch block, catching ActvityError
         # instead of ApplicationError. From this block, log an error that the Activity
         # has failed, and then throw another ApplicationError, passing
-        # in a message and the CreditCrdProcessingException type
+        # in a message and the type as "CreditCradProcessingError"
 
         credit_card_confirmation = await workflow.execute_activity_method(
             PizzaOrderActivities.process_credit_card,

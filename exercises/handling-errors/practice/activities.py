@@ -5,9 +5,7 @@ from shared import (
     Bill,
     CreditCardCharge,
     CreditCardConfirmation,
-    CreditCardProcessingError,
     Distance,
-    InvalidChargeAmountError,
     OrderConfirmation,
 )
 from temporalio import activity
@@ -55,7 +53,7 @@ class PizzaOrderActivities:
             # TODO Part A: Study this
             raise ApplicationError(
                 error_message,
-                type=InvalidChargeAmountError.__name__,
+                type="InvalidChargeAmountError"
                 non_retryable=True,
             )
 
@@ -84,6 +82,5 @@ class PizzaOrderActivities:
         else:
             # TODO Part A: Raise an error here to fail the Activity
             # if the credit card "processing" fails. This failure should fail the
-            # Activity and NOT retry. Pass in a valid error message, the error
-            # type, using the custom exception `CreditCardProcessingError` defined 
-            # in `shared.py`, and the flag to set it as non-retryable
+            # Activity and NOT retry. Pass in a valid error message, set the error
+            # type to "CreditCardProcessingError" and the flag to set it as non-retryable

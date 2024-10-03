@@ -8,13 +8,7 @@ from temporalio.exceptions import ActivityError, ApplicationError
 # Import activity, passing it through the sandbox without reloading the module
 with workflow.unsafe.imports_passed_through():
     from activities import PizzaOrderActivities
-    from shared import (
-        Bill,
-        CreditCardCharge,
-        CreditCardProcessingError,
-        OrderConfirmation,
-        PizzaOrder,
-    )
+    from shared import Bill, CreditCardCharge, OrderConfirmation, PizzaOrder
 
 
 @workflow.defn
@@ -22,9 +16,8 @@ class PizzaOrderWorkflow:
     @workflow.run
     async def order_pizza(self, order: PizzaOrder) -> OrderConfirmation:
 
-        # TODO Part B: Set the CreditCardProcessingException as a non-retryable error type
+        # TODO Part B: Set the type "CreditCardProcessingError" as a non-retryable error type
         # using the `non_retryable_error_types`` keyword argument. This argument takes a list.
-        # Hint: To get the FQDN of the class name, use `CreditCardProcessingException.class.getName()
         retry_policy = RetryPolicy(
             initial_interval=timedelta(seconds=15),
             backoff_coefficient=2.0,
@@ -81,7 +74,7 @@ class PizzaOrderWorkflow:
         except ActivityError as e:
             workflow.logger.error(f"Unable to process credit card {e.message}")
             raise ApplicationError(
-                "Unable to process credit card", CreditCardProcessingError.__name__
+                "Unable to process credit card", "CreditCardProcessingError"
             )
 
         try:

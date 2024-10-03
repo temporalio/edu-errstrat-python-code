@@ -4,22 +4,6 @@ from typing import List
 TASK_QUEUE_NAME = "pizza-tasks"
 
 
-class TestError(Exception):
-    """Credit Card Failed to process"""
-
-
-class CreditCardProcessingError(Exception):
-    """Credit Card Failed to process"""
-
-
-class InvalidChargeAmountError(Exception):
-    """The charge amount is invalid"""
-
-
-class OutOfServiceAreaError(Exception):
-    """Address is outside the service area"""
-
-
 @dataclass
 class Address:
     line1: str

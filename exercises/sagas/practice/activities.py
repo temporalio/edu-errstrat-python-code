@@ -7,12 +7,9 @@ from shared import (
     Bill,
     CreditCardCharge,
     CreditCardConfirmation,
-    CreditCardProcessingError,
     Distance,
-    InvalidChargeAmountError,
     OrderConfirmation,
     PizzaOrder,
-    TestError,
 )
 from temporalio import activity
 from temporalio.exceptions import ApplicationError
@@ -58,7 +55,7 @@ class PizzaOrderActivities:
 
             raise ApplicationError(
                 error_message,
-                type=InvalidChargeAmountError.__name__,
+                type="InvalidChargeAmountError",
                 non_retryable=True,
             )
 
@@ -80,7 +77,7 @@ class PizzaOrderActivities:
         # TODO PART C: Uncomment the following error
         # raise ApplicationError(
         #    "Test Error. Rolling back previous Activities.",
-        #    TestError.__name__,
+        #    "TestError",
         #    non_retryable=True,
         # )
 
@@ -95,7 +92,7 @@ class PizzaOrderActivities:
         else:
             raise ApplicationError(
                 "Invalid credit card number",
-                type=CreditCardProcessingError.__name__,
+                type="CreditCardProcessingError",
             )
 
     @activity.defn

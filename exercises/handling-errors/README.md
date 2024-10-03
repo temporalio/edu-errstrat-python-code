@@ -38,7 +38,7 @@ fail when an `ApplicationError` is raised, set it as non-retryable. Any other
 exception that is raised in a Python activity is automatically converted to an `ApplicationError`
 upon being raised.
 
-1. Open the `shared.py` file and familiarize yourself with the custom errors and
+1. Open the `shared.py` file and familiarize yourself with the
    dataclasses you will be using during the exercise. Pay particular attention
    to the custom error definitions.
 2. Open the `activities.py` file in your text editor.
@@ -54,8 +54,7 @@ upon being raised.
    if the credit card fails its validation step. In this Activity, you will raise
    an error if the entered credit card number does not have 16 digits. Use the
    `ApplicationError` code from the previous step as a reference. You should
-   pass a `CreditCardProcessingError` as the type to this method. This
-   custom error can be found in `shared.py`.
+   set the type as `CreditCardProcessingError`.
 6. Save your file.
 
 ## Part B: Catch the `ActivityError`
@@ -73,9 +72,8 @@ raised from the `processCreditCard` Activity and handle it.
       by the time it reaches the Workflow it is converted to an `ActvityError`.
    3. Within the `catch` block, add a logging statement stating that the Activity
       has failed.
-   4. After the logging statement, raise another `ApplicationError` using
-      `ApplicationError`, passing in a message and the
-      `CreditCardProcessingException` as the exception type. This will cause the
+   4. After the logging statement, raise another `ApplicationError` passing in a 
+      message and setting `CreditCardProcessingError` as the  type. This will cause the
       Workflow to fail, as you were unable to bill the customer.
 3. Save your file.
 

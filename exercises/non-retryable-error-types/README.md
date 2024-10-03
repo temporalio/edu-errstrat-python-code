@@ -86,23 +86,22 @@ You can also specify errors types that are not retryable in the Retry Policy. Th
 are known as non-retryable error types.
 
 1. In the `process_credit_card` Activity in `activities`, you threw an
-   `ApplicationError` where the type was set to `CreditCardProcessingException`.
+   `ApplicationError` where the type was set to `CreditCardProcessingError`.
    Now you will specify that error **type** as non-retryable.
 2. Open `workflow.py`.
 3. A RetryPolicy has already been defined with the following configuration:
 
-```java
-  RetryOptions retryOptions = RetryOptions.newBuilder()
-      .setInitialInterval(Duration.ofSeconds(15))
-      .setBackoffCoefficient(2.0)
-      .setMaximumInterval(Duration.ofSeconds(60))
-      .setMaximumAttempts(25)
-      .build();
+```python
+   retry_policy = RetryPolicy(
+      initial_interval=timedelta(seconds=15),
+      backoff_coefficient=2.0,
+      maximum_interval=timedelta(seconds=160),
+      maximum_attempts=100,
+   )
 ```
 
-4. In this `RetryOptions` builder, use the `non_retryable_error_types` keyword argument
-   to specify that the Activity should not retry on a `CreditCardProcessingException`.
-   1. Hint: To get the FQDN of the class name, use `CreditCardProcessingError.__name__`
+4. In this `RetryPolicy` builder, use the `non_retryable_error_types` keyword argument
+   to specify that the Activity should not retry on a `CreditCardProcessingError`.
 5. Next, add the `retry_options` object to the call to execute the `process_credit_card` Activity
     1. Note: You could apply the Retry Policy to all Activity invocations if you wanted. Or create
     a separate Retry Policy per Activity.
@@ -116,7 +115,7 @@ are known as non-retryable error types.
       ```bash
       ex2w
       ```
-   2. In another terminal, start the Workflow by executing `Starter.java`:
+   2. In another terminal, start the Workflow by executing `starter.py`:
       ```bash
       python starter.py
       ```
@@ -190,7 +189,7 @@ Web UI.
    ```bash
    ex2w
    ```
-3. In another terminal, start the Workflow by executing `Starter.java`:
+3. In another terminal, start the Workflow by executing `starter.py`:
    ```bash
    python starter.py
    ```

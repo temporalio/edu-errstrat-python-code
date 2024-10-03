@@ -7,9 +7,7 @@ from shared import (
     Bill,
     CreditCardCharge,
     CreditCardConfirmation,
-    CreditCardProcessingError,
     Distance,
-    InvalidChargeAmountError,
     OrderConfirmation,
 )
 from temporalio import activity
@@ -56,7 +54,7 @@ class PizzaOrderActivities:
 
             raise ApplicationError(
                 error_message,
-                type=InvalidChargeAmountError.__name__,
+                type="InvalidChargeAmountError",
                 non_retryable=True,
             )
 
@@ -86,7 +84,7 @@ class PizzaOrderActivities:
             # TODO PART A: Refactor this code to be retryable
             raise ApplicationError(
                 "Invalid credit card number",
-                type=CreditCardProcessingError.__name__,
+                type="CreditCardProcessingError",
                 non_retryable=True,
             )
 

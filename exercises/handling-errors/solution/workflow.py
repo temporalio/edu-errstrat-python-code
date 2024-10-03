@@ -7,13 +7,7 @@ from temporalio.exceptions import ActivityError, ApplicationError
 # Import activity, passing it through the sandbox without reloading the module
 with workflow.unsafe.imports_passed_through():
     from activities import PizzaOrderActivities
-    from shared import (
-        Bill,
-        CreditCardCharge,
-        CreditCardProcessingError,
-        OrderConfirmation,
-        PizzaOrder,
-    )
+    from shared import Bill, CreditCardCharge, OrderConfirmation, PizzaOrder
 
 
 @workflow.defn
@@ -65,7 +59,7 @@ class PizzaOrderWorkflow:
         except ActivityError as e:
             workflow.logger.error(f"Unable to process credit card {e.message}")
             raise ApplicationError(
-                "Unable to process credit card", CreditCardProcessingError.__name__
+                "Unable to process credit card", "CreditCardProcessingError"
             )
 
         try:

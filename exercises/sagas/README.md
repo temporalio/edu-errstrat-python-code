@@ -25,7 +25,7 @@ in the `solution` subdirectory.
 ## Part A: Review your new rollback Activities and custom Error
 
 This Exercise uses the same structure as in the previous Exercises — meaning 
-that it will fail at the very end on `ProcessCreditCard` if you provide it with 
+that it will fail at the very end on `process_credit_card` if you provide it with 
 a bad credit card number.
 
 Three new Activities have been created to demonstrate rollback actions.
@@ -35,18 +35,11 @@ Workflow encounters an error).
 * `revert_inventory` has also been added as a compensating action for `update_inventory`. 
 * `refund_customer` has been added as a compensating action for `send_bill`.
 
-Lastly, A custom error, `TestError`, has been implemented in `shared.py` for you to 
-use to raise in various places to simulate an error.
-
-
 1. Review these new Activities at the end of the `activities.py` file. None of
    them make actual inventory or billing changes, because the intent of this
    Activity is to show Temporal features, but you should be able to see where
    you could add functionality here.
-2. Review the `TestError` in `shared.py`. This is a error you'll use to simulate
-   failure within your Workflow. Similarly to the other errors, it is minimal, but
-   hopefully provides an example to follow for creating your own custom errors.
-3. Close the file.
+2. Close the file.
 
 ## Part B: Add your new rollback Activities to your Workflow
 
@@ -95,7 +88,7 @@ rollback.
    ```python
    raise ApplicationError(
       "Test Error. Rolling back previous Activities.",
-      TestError.__name__,
+      type="TestError",
       non_retryable=True,
    )
    ```
