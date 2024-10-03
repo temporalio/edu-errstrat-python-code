@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import List
 
 TASK_QUEUE_NAME = "pizza-tasks"
-WORKFLOW_ID_PREFIX = "pizza-workflow-order-"
 
 
 class CreditCardProcessingError(Exception):

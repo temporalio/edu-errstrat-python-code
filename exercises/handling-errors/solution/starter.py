@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from shared import TASK_QUEUE_NAME, WORKFLOW_ID_PREFIX, create_pizza_order
+from shared import TASK_QUEUE_NAME, create_pizza_order
 from temporalio.client import Client
 from workflow import PizzaOrderWorkflow
 
@@ -18,7 +18,7 @@ async def main():
     handle = await client.start_workflow(
         PizzaOrderWorkflow.order_pizza,
         order,
-        id=f"{WORKFLOW_ID_PREFIX}{order.order_number}",
+        id=f"{"pizza-workflow-order-"}{order.order_number}",
         task_queue=TASK_QUEUE_NAME,
     )
 
