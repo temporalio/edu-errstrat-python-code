@@ -29,6 +29,11 @@ course.
 | :---------------------------------------------- | :------------------------------------------------------ |
 | `samples/heartbeats`                            | [Heartbeats and Heartbeat Timeouts](samples/heartbeats) |
 
+## Instructor-Led Demonstrations
+
+| Directory Name            | Description                                                         |
+| :------------------------ | :------------------------------------------------------------------ |
+| `demos/error-propagation` | [Cross-Language Error Propagation](demos/error-propagation/README.md) |
 
 ## Reference
 
