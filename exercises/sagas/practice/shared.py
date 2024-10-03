@@ -80,6 +80,7 @@ class CreditCardConfirmation:
 
 
 def create_pizza_order() -> PizzaOrder:
+    # TODO Part C: Delete a digit from the credit card number
     credit_card_info = CreditCardInfo(
         holderName="Lisa Anderson", number="4242424242424242"
     )

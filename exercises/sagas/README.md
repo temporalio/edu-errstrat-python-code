@@ -83,15 +83,14 @@ rollback.
 3. The Workflow should complete successfully. Verify its status is **Completed** in
    the Web UI. 
 4. Kill the worker using `^C`
-5. Open `activities.py`
-6. Uncomment the following line in the `process_credit_card` Activity
+5. Open `shared.py`
+6. Locate the following line:
    ```python
-   raise ApplicationError(
-      "Test Error. Rolling back previous Activities.",
-      type="TestError",
-      non_retryable=True,
-   )
+    credit_card_info = CreditCardInfo(
+        holderName="Lisa Anderson", number="4242424242424242"
+    )
    ```
+   And delete the last 2 from the end. This will cause the `process_credit_card` Activity to fail, triggering a compensation.
 7. Restart the Worker by running:
    ```bash
    python worker.py
@@ -108,11 +107,7 @@ rollback.
    ```bash
    ex3st
    ```
-9. You should see the following line within the Stack Trace in the Terminal where
-   your Worker was running.
-   ```bash
-   ERROR:temporalio.workflow:. Rolling back previous Activities.
-   ```
+9. A short time after executing, you should see a stack trace appear stating that the Activity failed.
 10. Check the Workflow Execution in the Web UI. The Workflow will still be marked
    **Failed**, as the error that was raised in the Activity is re-thrown after the 
    compensation is complete. Locate the following:

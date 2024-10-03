@@ -81,7 +81,7 @@ class CreditCardConfirmation:
 
 def create_pizza_order() -> PizzaOrder:
     credit_card_info = CreditCardInfo(
-        holderName="Lisa Anderson", number="4242424242424242"
+        holderName="Lisa Anderson", number="424242424242424"
     )
     customer = Customer(
         customer_id=8675309,
