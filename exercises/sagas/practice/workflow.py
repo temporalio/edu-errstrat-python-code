@@ -91,14 +91,14 @@ class PizzaOrderWorkflow:
                 heartbeat_timeout=timedelta(seconds=10),
             )
         except ActivityError as e:
-            workflow.logger.error(e.cause)
+            workflow.logger.error(e.message)
             for compensation in reversed(compensations):
                 await workflow.execute_activity_method(
                     compensation["activity"],
                     compensation["input"],
                     start_to_close_timeout=timedelta(seconds=5),
                 )
-            raise e.cause
+            raise e
 
         try:
             confirmation = await workflow.execute_activity_method(
@@ -107,7 +107,7 @@ class PizzaOrderWorkflow:
                 start_to_close_timeout=timedelta(seconds=5),
             )
         except ActivityError as e:
-            workflow.logger.error("Unable to bill customer")
+            workflow.logger.error(f"Unable to bill customer {e.message}")
             raise ApplicationError("Unable to bill customer")
 
         delivery_driver_available = await workflow.execute_activity_method(

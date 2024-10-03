@@ -75,7 +75,7 @@ class PizzaOrderWorkflow:
                 heartbeat_timeout=timedelta(seconds=10),
             )
         except ActivityError as e:
-            workflow.logger.error("Unable to process credit card")
+            workflow.logger.error(f"Unable to process credit card {e.message}")
             raise ApplicationError(
                 "Unable to process credit card", CreditCardProcessingError.__name__
             )
@@ -87,7 +87,7 @@ class PizzaOrderWorkflow:
                 start_to_close_timeout=timedelta(seconds=5),
             )
         except ActivityError as e:
-            workflow.logger.error("Unable to bill customer")
+            workflow.logger.error(f"Unable to bill customer {e.message}")
             raise ApplicationError("Unable to bill customer")
 
         delivery_driver_available = await workflow.execute_activity_method(

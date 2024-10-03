@@ -76,6 +76,6 @@ class PizzaOrderWorkflow:
             )
         except ActivityError as e:
             workflow.logger.error("Unable to bill customer")
-            raise ApplicationError("Unable to bill customer")
+            raise ApplicationError(f"Unable to bill customer {e.message}")
 
         return confirmation
