@@ -86,6 +86,8 @@ class PizzaOrderWorkflow:
             )
         except ActivityError as e:
             workflow.logger.error(e.message)
+            # Note: If your compensatiting actions have the possibility
+            # of failure, you'll also want to have try/except blocks here
             for compensation in reversed(compensations):
                 await workflow.execute_activity_method(
                     compensation["activity"],
