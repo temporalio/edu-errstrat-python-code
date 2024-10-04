@@ -18,7 +18,7 @@ async def main():
     handle = await client.start_workflow(
         PizzaOrderWorkflow.order_pizza,
         order,
-        id=f"{"pizza-workflow-order-"}{order.order_number}",
+        id=f"pizza-workflow-order-{order.order_number}",
         task_queue=TASK_QUEUE_NAME,
     )
 
