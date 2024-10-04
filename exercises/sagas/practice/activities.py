@@ -74,13 +74,6 @@ class PizzaOrderActivities:
         self, charge_info: CreditCardCharge
     ) -> CreditCardConfirmation:
 
-        # TODO PART C: Uncomment the following error
-        # raise ApplicationError(
-        #    "Test Error. Rolling back previous Activities.",
-        #    "TestError",
-        #    non_retryable=True,
-        # )
-
         if len(charge_info.credit_card.number) == 16:
             card_processing_confirmation_number = "PAYME-78759"
             return CreditCardConfirmation(
