@@ -53,7 +53,7 @@ class PizzaOrderActivities:
             # TODO Part A: Study this
             raise ApplicationError(
                 error_message,
-                type="InvalidChargeAmountError"
+                type="InvalidChargeAmountError",
                 non_retryable=True,
             )
 
