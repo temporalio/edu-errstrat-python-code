@@ -42,20 +42,18 @@ upon being raised.
    dataclasses you will be using during the exercise. Pay particular attention
    to the custom error definitions.
 2. Open the `activities.py` file in your text editor.
-3. Add the following import statement `from temporalio.exceptions import ApplicationError`
-   at the top of this file.
-4. In the `send_bill` Activity, notice how an error is raised if the `chargeAmount`
+3. In the `send_bill` Activity, notice how an error is raised if the `chargeAmount`
    is less than 0. If the calculated amount to charge the customer is negative,
    a non-retryable `ApplicationError` is raised. It is important to use a
    non-retryable failure here, as you want to fail the Activity if the amount
    was calculated to be negative. In this error, we pass a reason for the failure
    and the type of error that is being converted to an `ApplicationError`.
-5. Go to `process_credit_card` Activity, where you will raise an `ApplicationError`
+4. Go to `process_credit_card` Activity, where you will raise an `ApplicationError`
    if the credit card fails its validation step. In this Activity, you will raise
    an error if the entered credit card number does not have 16 digits. Use the
    `ApplicationError` code from the previous step as a reference. You should
    set the type as `CreditCardProcessingError`.
-6. Save your file.
+5. Save your file.
 
 ## Part B: Catch the `ActivityError`
 
@@ -110,7 +108,7 @@ been provided to run this Workflow.
 1. Open `shared.py` and modify the code
    ```python
     credit_card_info = CreditCardInfo(
-        holderName="Lisa Anderson", number="424242424242424"
+        holderName="Lisa Anderson", number="2424242424242424"
     )
    ```
    by deleting a digit from the String. Save this file.
