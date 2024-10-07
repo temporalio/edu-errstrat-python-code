@@ -21,13 +21,7 @@ course.
 | :--------------------------------------- | :---------------------------------------------------------- |
 | `exercises/handling-errors`              | [Exercise 1](exercises/handling-errors/README.md)           |
 | `exercises/non-retryable-error-types`    | [Exercise 2](exercises/non-retryable-error-types/README.md) |
-| `exercises/saga-pattern`        | [Exercise 3](exercises/saga-pattern/README.md)                       |
-
-## Examples for Self-Study
-
-| Directory Name                                  | Description                                             |
-| :---------------------------------------------- | :------------------------------------------------------ |
-| `samples/heartbeats`                            | [Heartbeats and Heartbeat Timeouts](samples/heartbeats) |
+| `exercises/saga-pattern`        | [Exercise 3](exercises/sagas/README.md)                       |
 
 ## Instructor-Led Demonstrations
 
