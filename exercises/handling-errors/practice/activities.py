@@ -80,8 +80,7 @@ class PizzaOrderActivities:
                 billingTimestamp=int(time()),
             )
         else:
-            raise ApplicationError(
-                "Invalid credit card number",
-                type="CreditCardProcessingError",
-                non_retryable=True,
-            )
+            # TODO Part A: Raise an error here to fail the Activity
+            # if the credit card "processing" fails. This failure should fail the
+            # Activity and NOT retry. Pass in a valid error message, set the error
+            # type to "CreditCardProcessingError" and the flag to set it as non-retryable
