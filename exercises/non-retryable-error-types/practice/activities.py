@@ -113,7 +113,7 @@ class PizzaOrderActivities:
 
             activity.logger.info(f"Heartbeat: {x}")
 
-            await asyncio.sleep(15)
+            await asyncio.sleep(5)
 
         activity.logger.info("Delivery driver didn't respond")
         return False

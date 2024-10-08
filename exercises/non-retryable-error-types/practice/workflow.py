@@ -62,14 +62,12 @@ class PizzaOrderWorkflow:
             credit_card_charge = CreditCardCharge(
                 bill=bill, credit_card=order.credit_card_info
             )
-            # TODO Part B: Add the retryOptions to the ActivityOptions using the `retry_policy` keyword argument
-            # TODO Part D: Add the HeartbeatTimeout to the ActivityOptions using the `heartbeat_timeout` keyword argument
+            # TODO Part B: Add the retry_policy to the execute_activity_method using the `retry_policy` keyword argument
+            # TODO Part D: Add the heartbeat_timeout to the execute_activity_method using the `heartbeat_timeout` keyword argument
             credit_card_confirmation = await workflow.execute_activity_method(
                 PizzaOrderActivities.process_credit_card,
                 credit_card_charge,
                 start_to_close_timeout=timedelta(seconds=5),
-                retry_policy=retry_policy,
-                heartbeat_timeout=timedelta(seconds=10),
             )
         except ActivityError as e:
             workflow.logger.error(f"Unable to process credit card {e.message}")

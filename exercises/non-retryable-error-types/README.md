@@ -23,7 +23,7 @@ You'll need two terminal windows for this exercise.
    ```bash
    ex2
    ```
-2. Note that the `starter.py` file has had the credit card number modified to be
+2. Note that the `shared.py` file has had the credit card number modified to be
    invalid.
    ```python
     # This only has 15 digits
@@ -100,9 +100,10 @@ are known as non-retryable error types.
    )
 ```
 
-4. In this `RetryPolicy` builder, use the `non_retryable_error_types` keyword argument
+4. In this `RetryPolicy` constructor, use the `non_retryable_error_types` keyword argument
    to specify that the Activity should not retry on a `CreditCardProcessingError`.
-5. Next, add the `retry_options` object to the call to execute the `process_credit_card` Activity
+      1. This should be provided as a list.
+5. Next, add the `retry_policy` object to the call to execute the `process_credit_card` Activity
     1. Note: You could apply the Retry Policy to all Activity invocations if you wanted. Or create
     a separate Retry Policy per Activity.
 6. Save your file.
@@ -181,7 +182,15 @@ In this section, we will add a Heartbeat Timeout to your Activities.
 Now you will run the Workflow and witness the Heartbeats happening in the
 Web UI.
 
-1. In one terminal, start the Worker by running:
+1. In `shared.py`, locate the where `CreditCardInfo` is set and add another `2` 
+   to the end of the card number, making it valid again:
+   ```python
+   # This has been corrected and contains the correct number of digits
+   credit_card_info = CreditCardInfo(
+      holderName="Lisa Anderson", number="4242424242424242"
+   )
+   ```
+2. In one terminal, start the Worker by running:
    ```bash
    python worker.py
    ```
@@ -202,8 +211,9 @@ Web UI.
    in your Worker output refresh the page and look for a **Pending Activities**
    section. In this section you should see **Heartbeat Details** and JSON representing
    the payload.
-   1. Remember, the simulation will finish at a random interval. You may
-      need to run this a few times to see the results.
+   1. Remember, the simulation will finish at a random interval, and success
+      is not guaranteed in the simulation. You may need to run this a few times 
+      to see the a successful execution.
 
 You have now seen how heartbeats are implemented and appear when an Activity is
 running.

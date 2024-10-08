@@ -84,7 +84,7 @@ def create_pizza_order() -> PizzaOrder:
     # SETUP: Invalid Credit Card Information
     # This card only has 15 digits
     credit_card_info = CreditCardInfo(
-        holderName="Lisa Anderson", number="4242424242424242"
+        holderName="Lisa Anderson", number="424242424242424"
     )
     customer = Customer(
         customer_id=8675309,
