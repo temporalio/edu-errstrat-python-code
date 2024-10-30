@@ -1,7 +1,7 @@
 # Code Repository for Crafting an Error Handling Strategy (Python)
 
 This repository provides code used for exercises and demonstrations
-included in the Python version of the [Crafting an Error Handling Strategy](https://learn.temporal.io/courses/crafting-error-strategy)
+included in the Python version of the [Crafting an Error Handling Strategy](https://learn.temporal.io/courses/errstrat/)
 training course.
 
 It's important to remember that the example code used in this course was designed 
