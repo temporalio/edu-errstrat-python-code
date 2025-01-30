@@ -17,10 +17,6 @@ in the `solution` subdirectory.
    ```bash
    cd exercises/sagas/practice
    ```
-   or, if you're in the GitPod environment:
-   ```bash
-   ex3
-   ```
 
 ## Part A: Review your new rollback Activities and custom Error
 
@@ -68,17 +64,9 @@ rollback.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex3w
-   ```
 2. In another terminal, start the Workflow by executing:
    ```bash
    python starter.py
-   ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex3st
    ```
 3. The Workflow should complete successfully. Verify its status is **Completed** in
    the Web UI. 
@@ -95,17 +83,9 @@ rollback.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex3w
-   ```
 8. In another terminal, start the Workflow again by executing:
    ```bash
    python starter.py
-   ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex3st
    ```
 9. A short time after executing, you should see a stack trace appear stating that the Activity failed.
 10. Check the Workflow Execution in the Web UI. The Workflow will still be marked
