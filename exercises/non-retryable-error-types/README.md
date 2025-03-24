@@ -19,10 +19,6 @@ You'll need two terminal windows for this exercise.
    ```bash
    cd exercises/non-retryable-error-types/practice
    ```
-   or, if you're in the GitPod environment:
-   ```bash
-   ex2
-   ```
 2. Note that the `shared.py` file has had the credit card number modified to be
    invalid.
    ```python
@@ -49,17 +45,9 @@ immediately fail your Workflow on failure, others who call your Activity may not
       ```bash
       python worker.py
       ```
-      or, if you're in the GitPod environment, run:
-      ```bash
-      ex2w
-      ```
    2. In another terminal, start the Workflow by executing:
       ```bash
       python starter.py
-      ```
-      or, if you're in the GitPod environment, run:
-      ```bash
-      ex2st
       ```
    3. Go to the WebUI and view the status of the Workflow. It should be
       **Running**. Inspect the Workflow and see that it is currently retrying
@@ -112,17 +100,9 @@ are known as non-retryable error types.
       ```bash
       python worker.py
       ```
-      or, if you're in the GitPod environment, run:
-      ```bash
-      ex2w
-      ```
    2. In another terminal, start the Workflow by executing `starter.py`:
       ```bash
       python starter.py
-      ```
-      or, if you're in the GitPod environment, run:
-      ```bash
-      ex2st
       ```
    3. Go to the WebUI and view the status of the Workflow. You should see an `ActivityTaskFailed`
       error in event 18 with the message `Invalid credit card number`, and in event 22
@@ -194,17 +174,9 @@ Web UI.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex2w
-   ```
 3. In another terminal, start the Workflow by executing `starter.py`:
    ```bash
    python starter.py
-   ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex2st
    ```
 4. Now go to the WebUI and find your workflow, which should be in the `Running`
    state. Click on it to enter the details page. Once you see `Heartbeat: <A_NUMBER>`
@@ -231,17 +203,9 @@ a Heartbeat that is timing out.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex2w
-   ```
 5. In another terminal, start the Workflow by running::
    ```bash
    python starter.py
-   ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex2st
    ```
 6. Once you see the first Heartbeat message appear in the logs, wait 15s and
    refresh the WebUI. You should see the same **Pending Activities** section, but

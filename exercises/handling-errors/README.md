@@ -20,10 +20,6 @@ You'll need two terminal windows for this exercise.
    ```bash
    cd exercises/handling-errors/practice
    ```
-   or, if you're in the GitPod environment:
-   ```bash
-   ex1
-   ```
 
 ## Part A: raise a non-retryable `ApplicationError` to fail an Activity
 
@@ -89,19 +85,11 @@ been provided to run this Workflow.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex1w
-   ```
-3. In another terminal, start the Workflow by executing `starter.py`:
+2. In another terminal, start the Workflow by executing `starter.py`:
    ```bash
    python starter.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex1st
-   ```
-4. In the Web UI, verify that the Workflow ran successfully to completion.
+3. In the Web UI, verify that the Workflow ran successfully to completion.
 
 **Next, you'll modify the starter data to cause the Workflow to fail:**
 
@@ -117,19 +105,11 @@ been provided to run this Workflow.
    ```bash
    python worker.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex1w
-   ```
-5. In another terminal, start the Workflow by executing `starter.py`:
+4. In another terminal, start the Workflow by executing `starter.py`:
    ```bash
    python starter.py
    ```
-   or, if you're in the GitPod environment, run:
-   ```bash
-   ex1st
-   ```
-6. You should see the Workflow fail in the terminal where you executed `starter.py`.
+5. You should see the Workflow fail in the terminal where you executed `starter.py`.
    Also check the WebUI and view the failure there.
 
 ### This is the end of the exercise.

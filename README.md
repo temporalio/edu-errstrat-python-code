@@ -13,7 +13,7 @@ in one terminal to start the Temporal server. For more details on this command,
 please refer to the `Setting up a Local Development Environment` chapter in the
 course. 
 
-*Note: If you're using the Gitpod environment to run this exercise, you can skip this step.*
+*Note: If you're using the Codespaces environment to run this exercise, you can skip this step.*
 
 ## Hands-On Exercises
 
@@ -38,14 +38,11 @@ you work through this course.
 - [Temporal Python SDK Documentation](https://python.temporal.io/)
 - [Python Language Documentation](https://docs.python.org/3/)
 - [Python Packaging and Virtual Environment Documentation](https://packaging.python.org/en/latest/tutorials/installing-packages/#creating-virtual-environments)
-- [GitPod Documentation: Troubleshooting](https://www.gitpod.io/docs/troubleshooting)
 
 ## Exercise Environment for this Course
 
-You can launch an exercise environment for this course in GitPod by clicking the
-button below:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/temporalio/edu-errors-python-code)
+You can launch an exercise environment for this course using GitHub Codespaces by 
+following [this](codespaces.md) walkthrough.
 
 Alternatively, you can perform these exercises directly on your computer. Refer 
 to the instructions about setting up a local development environment, which you'll 
